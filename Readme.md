@@ -3,4 +3,4 @@
 
 to simply run sample need just <br>
 npm install<br>
-nodemon serve.js <br>
+npm start <br>

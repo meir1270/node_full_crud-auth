@@ -30,7 +30,7 @@ exports.create = (req, res) => {
 
 // Retrieve and return all notes from the database.
 exports.findAll = (req, res) => {
-    Note.find({user: req.user.id}).then(notes => {
+    Note.find({user: req.user.id}).populate('user','name email createdAt').then(notes => {
         console.log(notes)
         res.send(notes)}
     ).catch(err => {
@@ -42,7 +42,7 @@ exports.findAll = (req, res) => {
 
 // Find a single note with a noteId
 exports.findOne = (req, res) => {
-    Note.findById(req.params.noteId)
+    Note.findById(req.params.noteId).populate('user')
     .then(note => {
         if(!note) {
             return res.status(404).send({

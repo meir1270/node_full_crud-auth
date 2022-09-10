@@ -2,6 +2,7 @@ const express = require("express");
 const dbConfig = require("./database.config");
 const mongoose = require("mongoose");
 const dotenv = require('dotenv').config();
+const morgan = require('morgan');
 
 mongoose.Promise = global.Promise;
 
@@ -19,9 +20,11 @@ mongoose
     process.exit();
   }); 
  
-// create express app
+// create express app 
 const app = express();
 app.use(express.json());  
+
+app.use(morgan("dev"));
 
 // define a simple route
 app.get("/", (req, res) => {
@@ -37,7 +40,7 @@ require("./routes/student.routes")(app);
 require("./routes/animal.routes")(app);
 require("./routes/user.routes")(app);
 
-app.listen(3005, () => {
-  console.log("Server is listening on port 3005");
+app.listen(5000, () => {
+  console.log("Server is listening on port 5000");
 });
     

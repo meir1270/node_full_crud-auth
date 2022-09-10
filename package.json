@@ -4,7 +4,7 @@
   "description": "Never miss a thing in Life.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon serve.js"
   },
   "keywords": [
     "Express",
@@ -23,6 +23,7 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.14",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.19"
   }
 }
